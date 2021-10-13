@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "SQLite_UTF16Econdig_Reproduce": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
