@@ -6,11 +6,13 @@ namespace ConsoleApp1
   {
     static void Main(string[] args)
     {
-      var noUTF16Test = new Tester("test1.db", false);
-      noUTF16Test.DoTest();
 
-      var UTF16Test = new Tester("test2.db", true);
-      UTF16Test.DoTest();
+      //Without UTF16Encodong
+      new Tester("test1.db", false).DoTest();
+
+
+      //With UTF16Encodong
+      new Tester("test2.db", true).DoTest();
 
     }
   }

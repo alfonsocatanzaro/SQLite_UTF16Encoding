@@ -24,8 +24,8 @@ namespace ConsoleApp1
       Console.WriteLine(line);
       Console.WriteLine($"UseUTF16Encoding enabled:{_useUTF16Encoding}");
       _deleteDatabaseFileIfExists();
-      _createDatabase(getConnectionString(_useUTF16Encoding));
-      _execQuery(getConnectionString(_useUTF16Encoding));
+      _createDatabase(getConnectionString());
+      _execQuery(getConnectionString());
       Console.WriteLine(line);
       Console.WriteLine("");
     }
@@ -36,12 +36,14 @@ namespace ConsoleApp1
         File.Delete(_databaseFile);
     }
 
-    private string getConnectionString(bool useUTF16Encoding)
+    private string getConnectionString()
     {
       SQLiteConnectionStringBuilder connectionStringBuilder = new SQLiteConnectionStringBuilder();
       connectionStringBuilder.DataSource = _databaseFile;
-      if (useUTF16Encoding)
+
+      if (_useUTF16Encoding)
         connectionStringBuilder.UseUTF16Encoding = true;
+
       return connectionStringBuilder.ConnectionString;
     }
 
